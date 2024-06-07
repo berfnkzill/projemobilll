@@ -18,7 +18,7 @@
             android:exported="false" />
 
        <activity
-            android:name=".Anaekran"
+            android:name=".AnaSayfa"
             android:exported="false" />
 
 
