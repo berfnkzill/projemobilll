@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "123402158291",
+    "project_id": "mobillproje",
+    "storage_bucket": "mobillproje.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123402158291:android:51d038e8bde0af56bb9426",
+        "android_client_info": {
+          "package_name": "com.example.projemobil"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcD8_Kzxp1sCjvcELdUh5GhD81qh6mjf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
