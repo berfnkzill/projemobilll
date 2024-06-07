@@ -16,9 +16,12 @@
         <activity
             android:name=".AnaSayfa"
             android:exported="false" />
-        <activity
+
+       <activity
             android:name=".Anaekran"
             android:exported="false" />
+
+
         <activity
             android:name=".kayitoll"
             android:exported="false" />
@@ -32,9 +35,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".activity_kayitoll"></activity>
 
 
     </application>
+
+
 
 </manifest>
