@@ -43,6 +43,21 @@ class kayitoll : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kayitoll)
+        binding= ActivityKayitollBinding.inflate(layoutInflater)
+        val view=binding.root
+        setContentView(view)
+        var database=FirebaseDatabase.getInstance().reference
+
+
+
+        auth=Firebase.auth
+        firestore= Firebase.firestore
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets}
 
         kullaniciadi = findViewById(R.id.kullaniciadi)
         emailhere = findViewById(R.id.emailhere)
@@ -82,6 +97,31 @@ class kayitoll : AppCompatActivity() {
 
     companion object {
         private const val TAG = "RegisterActivity"
+    }
+    fun kayitol(view:View) {
+        val email = binding.emailhere.text.toString()
+        val password = binding.passhere.text.toString()
+        if (email.equals("") || password.equals("")) {
+            Toast.makeText(this, "Doğru bir şekilde email ve şifreyi griniz", Toast.LENGTH_LONG)
+                .show()
+        } else {
+            auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }.addOnFailureListener {
+                Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
+            }
+        }
+        val postMap = hashMapOf<String, Any>()
+        postMap.put("name", binding.kullaniciadi.text.toString())
+        firestore.collection("names").add(postMap).addOnSuccessListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }.addOnFailureListener {
+            Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()
+        }
     }
 }
 
